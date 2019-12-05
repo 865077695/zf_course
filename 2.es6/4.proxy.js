@@ -18,15 +18,16 @@ let obj = {
 
 // proxy只代理当前对象,多层需要递归
 let handler = {
-    get(target, key){
+    get(target, key) {
         // 如果key的值是一个对象，那递归代理这个对象
-        if(typeof target[key] === "object"){
+        if (typeof target[key] === "object") {
             return new Proxy(target[key], handler)
         }
-        return Reflect.get(target,key)
+        return Reflect.get(target, key)
     },
-    set(target,key,value){
-        if(key === 'length') return true
+    set(target, key, value) {
+        if (key === 'length') return true
+        // 将值分配给属性
         return Reflect.set(target, key, value)
     }
 }
