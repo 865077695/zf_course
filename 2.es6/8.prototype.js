@@ -1,4 +1,8 @@
 /**
+ * 原型
+ *     所有对象都有一个__proto__属性，指向所属构造函数的原型。即a.__proto__ === A.prototype
+ *     每个类的原型上都有一个constructor属性指向该类 即A.prototype.constructor === A
+ * 
  * 怎么用es5模拟es6中的class
  * 
  * 用构造函数来模拟类
