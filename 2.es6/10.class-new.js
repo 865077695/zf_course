@@ -51,6 +51,10 @@ class Animal {
     // static flag = 1; // 静态属性
 }
 
+Animal.prototype.a = function(){
+    console.log("a")
+}
+
 // call + Object.create()  es5:继承实例属性和共有属性
 class Tiger extends Animal {
     constructor(name) {
@@ -65,6 +69,7 @@ class Tiger extends Animal {
 let tiger = new Tiger("老胡");
 console.log(tiger)
 tiger.say();    // 优先在Tiger的prototype上查找方法，然后到父类的原型上查找
+tiger.a()
 
 /**
  * new 
