@@ -1,4 +1,4 @@
-// reduce
+// reduce求和
 [1, 2, 3].reduce((prev, current) => {
     console.log(prev, current)
     return prev + current
