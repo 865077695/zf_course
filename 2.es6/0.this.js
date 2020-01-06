@@ -4,6 +4,10 @@
 // 4、 是否由对象调用 -> 指向这个对象 ;
 // 5、 上面几种情况都不是：严格模式下指向undefined，非严格模式下指向全局对象
 
+/**
+ * 构造函数返回值
+ * 在JavaScript构造函数中：如果return值类型，那么对构造函数没有影响，实例化对象返回空对象；如果return引用类型（数组，函数，对象），那么实例化对象就会返回该引用类型，但仍然可以读取到prototype上的属性和方法；
+ */
 // let声明的变量不在window上
 
 
@@ -36,3 +40,24 @@ obj.fn2();
 obj.fn3();
 obj.fn4();
 
+
+
+
+function Person() {
+    //      return 123;                         //值类型
+    //      return "abcdef";                    //值类型
+    //      return ["a","b"];                   //引用类型
+    //      return {a:2};                       //引用类型
+    return function () { console.log(1) };   //引用类型
+}
+Person.prototype.sayHello =
+    function () {
+        console.log('hello world');
+    };
+console.log(new Person());
+
+    //new Person()分别返回以下:
+    //        1. Person{}
+    //        2. Person{}
+    //        3. ["a","b"];
+    //        4. Object {a:2}
